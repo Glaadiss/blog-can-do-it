@@ -1,0 +1,10 @@
+
+
+  <blockquote> 
+  <b> <%= @article.user.name %> </b>
+  <time> <%= l @article.updated_at, format: :short %> </time>
+  <h2> <%= @article.name %></h2> 
+  </blockquote>
+  
+  <p> <%= @article.body.html_safe %> </p>
+

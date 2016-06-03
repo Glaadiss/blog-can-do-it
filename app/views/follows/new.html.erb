@@ -1,0 +1,4 @@
+  <%= simple_form_for [@follow] do |f| %>
+    <%= f.association :user, as: :radio_buttons %>
+    <%= f.button :submit, value: " Subskybuj go!"%>
+  <% end %>

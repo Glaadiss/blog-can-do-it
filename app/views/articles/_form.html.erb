@@ -1,0 +1,6 @@
+
+  <%= simple_form_for [@blog,@article] do |f| %>
+    <%= f.input :name, label: 'Nazwa artykułu:' %>
+    <%= f.input :body, label: 'Treść',  :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} } %>
+    <%= f.button :submit, value: " Dodaj artykuł "%>
+  <% end %>

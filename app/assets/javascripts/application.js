@@ -17,5 +17,6 @@
 //= require react
 //= require react_ujs
 //= require components
+//= require ckeditor/init
 //= require_tree .
 

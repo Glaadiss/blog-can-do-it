@@ -4,7 +4,20 @@ $.fn.scrollTo = function( target ){
   }, 1000);
 } 
 
+
+
+
+
+
+
+
 $(document).ready(function(){
+
+  $('body').scrollTo('#one');
+
+
+
+
   $('#toSecond').on('click',function(){
       $('body').scrollTo('#two');
   })
@@ -17,6 +30,13 @@ $(document).ready(function(){
   $('#toSecond2').on('click',function(){
       $('body').scrollTo('#two');
   })
+  $('#register').on('click',function(){
+      $('body').scrollTo('#two');
+  })
+  $('#login').on('click',function(){
+      $('body').scrollTo('#three');
+  })
+
 })
 
 

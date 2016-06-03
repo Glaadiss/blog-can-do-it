@@ -1,0 +1,22 @@
+
+<% @articles.each do |article| %>
+  <%= link_to blog_article_path(article.user.blogs.first, article) do  %>
+    <div class="row">
+      <div class="col-md-2"></div>
+      
+      <div class="col-md-3">
+   
+       <blockquote> 
+       <b> <%= article.user.name %> </b>
+       <time> <%= l article.updated_at, format: :short %> </time>
+       <h2> <%= article.name %></h2> </blockquote>
+      </div>
+      <div class="col-md-3 article">
+        <p> <%= article.body[0,100].html_safe%>...</p>     
+      </div>
+      
+      <div class="col-md-4"></div>
+    </div>
+  <% end %>
+  <hr/>
+<% end %>

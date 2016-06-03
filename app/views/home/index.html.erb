@@ -8,7 +8,8 @@
       <h1>Witaj w Blogowni!</h1>
       <p>...</p>
       <p>
-      <%= link_to 'Zarejestruj się!', new_user_registration_path , class: 'btn btn-primary btn-lg' %>
+      <button id='register' class="'btn btn-primary btn-lg'"> Zarejestruj się !</button> ...
+      <button id='login' class="'btn btn-success btn-lg'"> a jeżeli Masz już konto!</button>
       </p>
     </div>
   </div>
@@ -20,14 +21,22 @@
 <div id="two" class="page">
 
   <div id ="toFirst"class="bounce_reverse"><i class="fa reverse fa-angle-double-down "></i></div>
-
-
   <div class="container">
     <div class="jumbotron">
-      <h2>Chcesz podzielić się swoimi przeżyciami? </h2>
-      <p>...</p>
-      <%= link_to 'Zapisz się już teraz!', new_user_registration_path , class: 'btn btn-success btn-lg' %>
-      </p>      
+      <h2>Zarejestruj się</h2>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+        <div class="form-inputs">
+          <%= f.input :email, required: true, autofocus: true %>
+          <%= f.input :name, required: true %>
+          <%= f.input :password, required: true, hint: (" minimum #{@minimum_password_length} znaków" if @minimum_password_length) %>
+          <%= f.input :password_confirmation, required: true %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Zarejestruj" %>
+        </div>
+      <% end %>
     </div>
   </div>
 
@@ -38,13 +47,26 @@
 <div id="three" class="page">
   <div id="toSecond2" class="bounce_reverse"><i class="fa reverse fa-angle-double-down "></i>
   </div>
-
   <div class="container">
     <div class="jumbotron">
-      <h1> das dasdas dsa</h1>
-      <p>...</p>
-      <%= link_to 'qwe qwe qwe', new_user_registration_path , class: 'btn btn-success btn-lg' %>
-      </p>      
+
+      <h2>Zaloguj się </h2>
+
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :email, required: false, autofocus: true %>
+          <%= f.input :password, required: false %>
+          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Zaloguj" %>
+        </div>
+      <% end %>
+
+
     </div>
   </div>
+
+
 </div>

@@ -1,18 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BlogReactRails</title>
+  <title>Blogowisko</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-  
+  <% if user_signed_in? %>
+  <nav class="navbar navbar-inverse" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "Blogowisko", root_path, class:"navbar-brand" %>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Szukaj">
+        </div>
+        <button type="submit" class="btn btn-default">Znajdź</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+         <%= have_blog %> 
+         
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %> <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Edytuj konto', edit_user_registration_path %> </li>
+            <li><%= link_to 'Wyloguj', destroy_user_session_path, :method => :delete %>  </li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </nav>
+
 
   <div class="container">
-  <%= yield %>
+    <div class="my_body">
+      <%= yield %>
+    </div>
   </div>
 
+  <% else %>
+    <div class="container">
+    <%= yield %>
+    </div>
+  <% end %>
 </body>
 </html>
+
+

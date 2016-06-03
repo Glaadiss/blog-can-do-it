@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
   
+  resources :follows, only: [:new, :create]
+  mount Ckeditor::Engine => '/ckeditor'
+  resources :blogs do
+    resources :articles
+  end
   root 'home#index'
-  devise_for :users
+  devise_for :users,  :controllers => { :registrations => 'registrations' } 
+  get 'users/:id/board' => 'articles#all_articles'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

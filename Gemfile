@@ -13,7 +13,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'react-rails'       #frontend
 gem 'simple_form', '~> 3.1.0'
-
+gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'rails-4-x' # For 4.x
 gem 'kaminari'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'ckeditor', github: 'galetahub/ckeditor'
