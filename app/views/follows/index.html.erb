@@ -1,0 +1,11 @@
+
+<ul>
+  <%@follows.each do |follow| %>
+    <li> 
+      <%= follow.user.name %>  
+      <%= link_to "Usuń",  follow_path(follow), :method => :delete,  class: 'btn btn-danger', data: {confirm: 'Czy na pewno?'} %> 
+    </li>
+  <%end%>
+</ul>
+
+

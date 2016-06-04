@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :follows, only: [:new, :create]
+  resources :follows, only: [:new, :create, :index, :destroy]
   mount Ckeditor::Engine => '/ckeditor'
   resources :blogs do
     resources :articles

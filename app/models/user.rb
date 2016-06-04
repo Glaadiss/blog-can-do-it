@@ -9,4 +9,13 @@ class User < ActiveRecord::Base
   has_many :follows
   has_many :followers, through: :follows 
 
+  validates :name, uniqueness: true
+
+  # scope :followers, ->  (current) { includes(:follows).where(follows: {follower_id: current})}
+
+  scope :no_followed, -> (current) { where.not(id: Follow.where(follower_id: current).pluck(:user_id)).where.not(id: current)}
+
+  # current = current_user.id 
+  # Follow.where(user_id: current)
+
 end
