@@ -1,0 +1,7 @@
+<div class="row">
+  <%= simple_form_for [@blog, @article, @comment], :remote => true do |f| %>
+    <%= f.input :body, as: :text, label: 'Treść Komentarza' %>
+    <%= f.button :submit, value: "Dodaj Komentarz"%>
+  <% end %>     
+  <hr>
+</div>

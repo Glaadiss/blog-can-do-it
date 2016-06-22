@@ -6,5 +6,47 @@
   <h2> <%= @article.name %></h2> 
   </blockquote>
   
-  <p> <%= @article.body.html_safe %> </p>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-8">   
+      <p> <%= @article.body.html_safe %> </p>
+      <hr>
+      <div id="newComment">
+        <%=  render 'new_comment' %> 
+      </div>
+      
+      <div id="comments">
+        <%=  render 'comments' %>  
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+
+
+
+<button class="btn btn-info btn-small center" id="more"> Załaduj więcej!</button>
+
+<script type="text/javascript">
+  $('body').css('background-image', 'url(' + '<%= @blog.avatar.url %>'  + ')' );
+    var n =2;
+    // Each time the user scrolls
+    $('#more').click(function(){
+        $.ajax({
+          url: '/blogs/'+ <%= @blog.id %> +'/articles/'+<%= @article.id %> +'?page='+n+'',
+          dataType: 'html',
+          success: function(html) {
+            var div = $(html).find("#comments .row");
+            if(!div.html())
+              $('#more').remove();
+
+            div.css('display','none');
+            $(div).appendTo('#comments').show('slow').after(function() {
+              $("html, body").animate({ scrollTop: $(document).height() }, 1000);
+              n+=1;
+            });
+          }
+
+        })
+      });
+</script>
 

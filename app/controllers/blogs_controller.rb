@@ -9,7 +9,11 @@ class BlogsController < ApplicationController
 
   def show  
     @blog = Blog.find(params[:id])
-    @articles = @blog.articles.ordered
+    @articles = @blog.articles.paginate(page: params[:page]).ordered
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new

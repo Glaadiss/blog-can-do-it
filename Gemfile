@@ -14,7 +14,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'react-rails'       #frontend
 gem 'simple_form', '~> 3.1.0'
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'rails-4-x' # For 4.x
-gem 'kaminari'
+gem 'will_paginate', '~> 3.0.5'
+gem 'betterlorem', '~> 0.1.2'
+gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'devise'
@@ -42,8 +44,15 @@ group :test do
   gem 'shoulda-matchers', require: false
 end
 
+
 group :development do
   gem 'brakeman', :require => false
   gem 'traceroute'
   gem 'web-console', '~> 2.0'
 end
+
+
+      # * Jump to definition = ``Super+Click``
+      # * Jump to definition = ``Control+Super+Alt+Up``
+      # * Go back = ``Control+Super+Alt+Left``
+      # * Manual CodeIntel = ``Control+Shift+space``

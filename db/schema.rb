@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160605131051) do
+ActiveRecord::Schema.define(version: 20160622170010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,21 @@ ActiveRecord::Schema.define(version: 20160605131051) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "rates", force: :cascade do |t|
+    t.integer  "mark"
+    t.integer  "user_id"
+    t.integer  "comment_id"
+    t.integer  "blog_id"
+    t.integer  "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "rates", ["article_id"], name: "index_rates_on_article_id", using: :btree
+  add_index "rates", ["blog_id"], name: "index_rates_on_blog_id", using: :btree
+  add_index "rates", ["comment_id"], name: "index_rates_on_comment_id", using: :btree
+  add_index "rates", ["user_id"], name: "index_rates_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -92,6 +107,10 @@ ActiveRecord::Schema.define(version: 20160605131051) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -102,4 +121,8 @@ ActiveRecord::Schema.define(version: 20160605131051) do
   add_foreign_key "blogs", "users"
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
+  add_foreign_key "rates", "articles"
+  add_foreign_key "rates", "blogs"
+  add_foreign_key "rates", "comments"
+  add_foreign_key "rates", "users"
 end

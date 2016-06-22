@@ -11,8 +11,8 @@ class Article < ActiveRecord::Base
   scope :followed, -> (current){joins(:user => [:follows]).where(follows: {follower_id: current})}
 
  
-
-
+  self.per_page = 5
+  has_many :comments
   belongs_to :user
   belongs_to :blog
 

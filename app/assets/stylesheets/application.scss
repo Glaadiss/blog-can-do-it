@@ -24,7 +24,7 @@ body{
   background-position: center;
   overflow: scroll;
   min-height: 100vh;
-
+  
 
 }
 
@@ -56,5 +56,16 @@ a{
 .article img {
   height: 100px;
   width: 100px;
+
+}
+
+
+#not_register, #not_register a{
+  position: fixed;
+  left: 90%;
+  top: 5%;
+  font-size: 120%;
+
+
 
 }

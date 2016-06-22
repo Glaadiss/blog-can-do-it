@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   
-  resources :comments
+  resources :rates
   resources :follows, only: [:new, :create, :index, :destroy]
   mount Ckeditor::Engine => '/ckeditor'
   resources :blogs do
-    resources :articles
+    resources :articles do 
+      resources :comments
+    end
   end
   root 'home#index'
   devise_for :users,  :controllers => { :registrations => 'registrations' } 

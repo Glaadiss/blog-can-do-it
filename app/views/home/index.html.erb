@@ -35,6 +35,7 @@ body{
         <div class="form-inputs">
           <%= f.input :email, required: true, autofocus: true %>
           <%= f.input :name, required: true %>
+          <%= f.input :avatar, as: :file %>
           <%= f.input :password, required: true, hint: (" minimum #{@minimum_password_length} znaków" if @minimum_password_length) %>
           <%= f.input :password_confirmation, required: true %>
         </div>

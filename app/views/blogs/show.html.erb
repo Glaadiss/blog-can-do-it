@@ -7,6 +7,36 @@
 </div>
 
 
+<div id="my-articles">
+<%=  render @articles %>
+</div>
+
+<button class="btn btn-info btn-small center" id="more"> Załaduj więcej!</button>
+
+<script type="text/javascript">
+
+  
+    $('body').css('background-image', 'url(' + '<%= @blog.avatar.url %>'  + ')' );
+    var n =2;
+    // Each time the user scrolls
+    $('#more').click(function(){
+        $.ajax({
+          url: '/blogs/'+ <%= @blog.id %> +'?page='+n+'',
+          dataType: 'html',
+          success: function(html) {
+            var div = $(html).find("#my-articles .row");
+            if(!div.html())
+              $('#more').remove();
+
+            div.css('display','none');
+            $(div).appendTo('#my-articles').show('slow').after(function() {
+              $("html, body").animate({ scrollTop: $(document).height() }, 1000);
+              n+=1;
+            });
+          }
+
+        })
+      });
 
 
-<%= render :template => 'articles/_articles' %>
+</script>

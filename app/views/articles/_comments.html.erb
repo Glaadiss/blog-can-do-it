@@ -1,0 +1,7 @@
+<% @comments.each do |comment| %>
+  <div class="row">
+    <small><time> <%= l comment.updated_at, format: :short %> </time>  <i> <%= comment.user.name %></i></small> 
+    <p> <%= comment.body %> </p>
+  </div>
+<% end %>
+

@@ -1,0 +1,4 @@
+<%= simple_form_for [@article, @comment] do |f| %>
+  <%= f.input :body, as: :text, label: 'Treść Komentarza' %>
+  <%= f.button :submit, label: "Dodaj Komentarz"%>
+<% end %>
