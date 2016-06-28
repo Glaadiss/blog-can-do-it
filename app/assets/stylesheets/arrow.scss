@@ -73,3 +73,11 @@
  40% {transform: translateY(-30px);}
  60% {transform: translateY(-15px);}
 }
+
+
+@media only screen and (max-width: 700px) {
+    .jumbotron{
+      padding-top: 0;
+      margin-top: 0;
+    }
+}
