@@ -15,17 +15,17 @@ body{
 }
 
 #one{
-  background: rgba(255, 255, 255, 0.5) url('/assets/tlo.jpg');
+  background: rgba(255, 255, 255, 0.5) image-url('tlo.jpg');
   top: 0;
 }
 
 #two{
-  background: rgba(255, 255, 255, 0.5) url('/assets/tlo2.jpg');
+  background: rgba(255, 255, 255, 0.5) image-url('tlo2.jpg');
   top: 100vh
 }
 
 #three{
-  background: rgba(255, 255, 255, 0.5) url('/assets/tlo3.jpg');
+  background: rgba(255, 255, 255, 0.5) image-url('tlo3.jpg');
   top: 200vh
 }
 
