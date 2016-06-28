@@ -17,26 +17,19 @@
 
   
     $('body').css('background-image', 'url(' + '<%= @blog.avatar.url %>'  + ')' );
-    var n =2;
-    // Each time the user scrolls
-    $('#more').click(function(){
-        $.ajax({
-          url: '/blogs/'+ <%= @blog.id %> +'?page='+n+'',
-          dataType: 'html',
-          success: function(html) {
-            var div = $(html).find("#my-articles .row");
-            if(!div.html())
-              $('#more').remove();
 
-            div.css('display','none');
-            $(div).appendTo('#my-articles').show('slow').after(function() {
-              $("html, body").animate({ scrollTop: $(document).height() }, 1000);
-              n+=1;
-            });
-          }
+    var counter = 2;
+    var url = '/blogs/'+ <%= @blog.id %> +'?page='+counter+'';
+    var divv = '#my-articles';
+    removeButon(counter,<%= @blog.articles.count %>, '#more');
 
-        })
-      });
+    $('#more').on('click',function(){
+      counter = myPagination(url,counter,divv, '#more' );
+      removeButon(counter,<%= @blog.articles.count %>, '#more');
+
+      url = '/blogs/'+ <%= @blog.id %> +'?page='+counter+'';
+
+    });
 
 
 </script>

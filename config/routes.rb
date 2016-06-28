@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
   end
   root 'home#index'
-  devise_for :users,  :controllers => { :registrations => 'registrations' } 
+  devise_for :users,  :controllers => { :registrations => 'registrations', :omniauth_callbacks => "users/omniauth_callbacks" } 
   get 'users/:id/board' => 'articles#all_articles'
 
   # The priority is based upon order of creation: first created -> highest priority.

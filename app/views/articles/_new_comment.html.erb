@@ -1,7 +1,13 @@
 <div class="row">
-  <%= simple_form_for [@blog, @article, @comment], :remote => true do |f| %>
-    <%= f.input :body, as: :text, label: 'Treść Komentarza' %>
-    <%= f.button :submit, value: "Dodaj Komentarz"%>
-  <% end %>     
-  <hr>
+    <%= simple_form_for [@blog, @article, @comment], :remote => true do |f| %>
+      <%= f.input :body, as: :text, label: 'Treść Komentarza' %>
+      <%= f.button :submit, value: "Dodaj Komentarz", id: 'add_comment'%>
+    <% end %>     
+    <hr>
 </div>
+
+<script type="text/javascript">
+$("#new_comment").bind("ajax:complete", function(event,xhr,status){
+  $('#comment_body').val('');
+});
+</script>

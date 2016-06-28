@@ -29,6 +29,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'puma' 
 gem 'faker'
 
+gem 'omniauth-facebook'
+
 group :development, :test do
   gem 'byebug'
   gem 'spring'
@@ -56,3 +58,5 @@ end
       # * Jump to definition = ``Control+Super+Alt+Up``
       # * Go back = ``Control+Super+Alt+Left``
       # * Manual CodeIntel = ``Control+Shift+space``
+
+      

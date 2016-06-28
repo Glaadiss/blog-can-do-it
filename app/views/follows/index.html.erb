@@ -1,11 +1,22 @@
 
-<ul>
+
   <%@follows.each do |follow| %>
-    <li> 
-      <%= follow.user.name %>  
-      <%= link_to "Usuń",  follow_path(follow), :method => :delete,  class: 'btn btn-danger', data: {confirm: 'Czy na pewno?'} %> 
-    </li>
+    <div class="row">
+      <div class="col-md-2">
+        <% if follow.user.blogs.first %>
+          <%= link_to  follow.user.name, blog_path(follow.user.blogs.first)  %>  
+        <% else %>
+          <%= follow.user.name %> 
+        <% end %>
+      </div>
+      <div class="col-md-2">
+        <%= link_to "Usuń",  follow_path(follow), :method => :delete,  class: 'btn btn-danger', 
+        data: {confirm: 'Czy na pewno?'} %> 
+      </div>
+      <div class="col-md-8"></div>
+    </div>
+    <br/>
   <%end%>
-</ul>
+
 
 

@@ -1,7 +1,8 @@
 
   <% @articles.each do |article| %>
-    <%= link_to blog_article_path(article.user.blogs.first, article) do  %>
-      <div class="row">
+    <div class="row">
+      <%= link_to blog_article_path(article.user.blogs.first, article) do  %>
+      
         <div class="col-md-2"></div>
         
         <div class="col-md-3">
@@ -16,9 +17,12 @@
         </div>
         
         <div class="col-md-4"></div>
-      </div>
-    <% end %>
-    <hr/>
+      
+      <% end %>
+    </div>
+    <div class="row">
+      <hr/>
+    </div>
   <% end %>
 
 

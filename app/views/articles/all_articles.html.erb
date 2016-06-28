@@ -3,4 +3,28 @@
   <h1>Ostatnie artykuły subskrybowanych</h1>
 </div>
 
-<%=render 'articles' %>
+<div id="my-articles">
+<%=  render 'articles' %>
+</div>
+
+
+<button class="btn btn-info btn-small center" id="more"> Załaduj więcej!</button>
+
+<script type="text/javascript">
+
+var counter = 2;
+var url = '/users/'+ <%= current_user.id %> +'/board?page='+counter+'';
+var divv = '#my-articles';
+removeButon(counter,<%= @articles.count %>, '#more');
+$('#more').on('click',function(){
+  counter = myPagination(url,counter,divv, '#more' );
+  removeButon(counter,<%= @articles.count %>, '#more');
+  url = '/users/'+ <%= current_user.id %> +'/board?page='+counter+'';
+
+});
+
+
+
+</script>
+
+

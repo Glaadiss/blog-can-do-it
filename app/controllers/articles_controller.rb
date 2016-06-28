@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   before_action :owners_only, only: [:edit, :update, :destroy]
 
   def all_articles
-    @articles = Article.followed(params[:id]).ordered
+    @articles = Article.paginate(page: params[:page]).followed(params[:id]).ordered
     
   end
 
