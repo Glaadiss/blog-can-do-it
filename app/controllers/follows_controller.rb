@@ -4,9 +4,6 @@ class FollowsController < ApplicationController
     @follows  = Follow.follows(current_user.id)
   end
 
-  def new
-    @follow = Follow.new
-  end
 
   def destroy
     @follow = Follow.find(params[:id])
@@ -14,9 +11,11 @@ class FollowsController < ApplicationController
     redirect_to :back
   end
   def create 
-    @follow = Follow.new(follower_id: current_user.id, user_id: params[:follow][:user])
+    @follow = Follow.new(follower_id: current_user.id, user_id: params[:user_id])
     if @follow.save
-      redirect_to root_path
+      respond_to do |format| 
+      format.js      
+      end
     else
       render 'new'
     end

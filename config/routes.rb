@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     end
   end
   root 'home#index'
+  resources :users, only: [:index]
+
   devise_for :users,  :controllers => { :registrations => 'registrations', :omniauth_callbacks => "users/omniauth_callbacks" } 
   get 'users/:id/board' => 'articles#all_articles'
 

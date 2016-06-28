@@ -2,3 +2,5 @@
     <%= f.input :user, collection: User.no_followed(current_user, par),  as: :radio_buttons %>
     <%= f.button :submit, value: " Subskybuj go!"%>
   <% end %>
+
+  

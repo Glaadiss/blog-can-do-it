@@ -1,0 +1,29 @@
+<% @users.each do |user| %> 
+  <div class="row">
+  <%= link_to blog(user) do %>
+    <div class="col-md-1">
+      <%= image_tag(user.avatar.url(:face)) %>
+    </div>
+    <div class="col-md-2">
+      <%= user.name %>
+    </div>
+  <% end %>
+
+  <div class="col-md-1">
+    <%= link_to 'Subskrybuj', follows_path(user_id: user.id ), method: :post, remote: true, class:'btn btn-success a' %> 
+  </div>
+  
+  <div class="col-md-8"></div>
+
+  </div>
+  <br/>
+<% end %>
+
+
+<script>
+$('.a').on('click',function(){
+  this.closest('.row').remove();
+
+});
+
+</script>
