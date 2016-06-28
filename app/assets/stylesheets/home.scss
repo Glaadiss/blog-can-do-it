@@ -37,9 +37,15 @@ body{
 }
 
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 760px) {
     .jumbotron{
-      padding-top: 0;
-      margin-top: 0;
+      padding-top: 2%;
+      margin-top: 2%;
+    }
+    .hidden-phone{
+      display: none;
+    }
+    .butt{
+      width: 100%;
     }
 }
