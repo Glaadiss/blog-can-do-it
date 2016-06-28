@@ -21,13 +21,15 @@ gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'devise'
 gem 'devise-i18n'
-gem 'rails_12factor', group: :productiond
+gem 'rails_12factor', group: :production
 gem 'devise-bootstrap-views'
 gem 'aws-sdk'
 gem 'foreman'
 gem 'sdoc', '~> 0.4.0', group: :doc   
 gem 'puma' 
 gem 'faker'
+
+
 
 gem 'omniauth-facebook'
 
@@ -59,4 +61,3 @@ end
       # * Go back = ``Control+Super+Alt+Left``
       # * Manual CodeIntel = ``Control+Shift+space``
 
-      
